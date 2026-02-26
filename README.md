@@ -70,3 +70,18 @@ std_dev = np.std(data)
 variance = np.var(data)
 cv = (std_dev / np.mean(data)) * 100
 ```
+
+
+
+---
+
+## 5. Univariate Analysis (Visualizing One Variable)
+Focuses on understanding the distribution of a single feature.
+
+* **Categorical Data**
+    * **Frequency Table:** Lists the count of each category.
+
+    * **Cumulative Frequency:** Useful to see how many observations fall below a certain category (mostly for ordinal data).
+
+* **Numerical Data**
+    * **Histogram:** Displays the "density" of data across bins. It helps identify if data is Normal, Right-Skewed, or Left-Skewed.

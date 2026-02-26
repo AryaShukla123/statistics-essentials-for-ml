@@ -14,8 +14,6 @@ Statistics is the backbone of Machine Learning, providing the tools to separate 
 
 
 
-
-
 ---
 
 ## 2. Data Fundamentals
@@ -52,3 +50,16 @@ print(f"Mean: {np.mean(data)}")
 print(f"Median: {np.median(data)}")
 print(f"Mode: {stats.mode(data, keepdims=True).mode[0]}")
 print(f"Trimmed Mean (10%): {stats.trim_mean(data, 0.1)}")
+```
+
+
+
+---
+
+## 4. Measures of Dispersion
+Dispersion tells us how "spread out" the data is around the center.
+
+* **Range:** Simple but ignores the distribution of the internal data.
+* **Variance ($\sigma^2$):** The average of the squared differences from the mean. It quantifies the degree of spread.
+* **Standard Deviation ($\sigma$):** The square root of variance. It is expressed in the same units as the data, making it easier to interpret.
+* **Coefficient of Variation (CV):** Expressed as a percentage. It allows you to compare the volatility of two different datasets (e.g., comparing the price fluctuations of Gold vs. Bitcoin).

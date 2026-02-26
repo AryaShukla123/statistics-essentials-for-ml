@@ -63,3 +63,10 @@ Dispersion tells us how "spread out" the data is around the center.
 * **Variance ($\sigma^2$):** The average of the squared differences from the mean. It quantifies the degree of spread.
 * **Standard Deviation ($\sigma$):** The square root of variance. It is expressed in the same units as the data, making it easier to interpret.
 * **Coefficient of Variation (CV):** Expressed as a percentage. It allows you to compare the volatility of two different datasets (e.g., comparing the price fluctuations of Gold vs. Bitcoin).
+
+### 🐍 Python Implementation:
+```python
+std_dev = np.std(data)
+variance = np.var(data)
+cv = (std_dev / np.mean(data)) * 100
+```

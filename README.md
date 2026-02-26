@@ -85,3 +85,31 @@ Focuses on understanding the distribution of a single feature.
 
 * **Numerical Data**
     * **Histogram:** Displays the "density" of data across bins. It helps identify if data is Normal, Right-Skewed, or Left-Skewed.
+
+
+
+---
+
+## 6. Bivariate Analysis (Relationships)
+Analyzing how two variables interact with each other.
+
+* **Categorical -** Categorical (Contingency Table): Also known as a "Crosstab." It shows the relationship between two categories (e.g., Gender vs. Voting Preference).
+
+* **Numerical -** Numerical (Scatter Plot): Used to check for linear or non-linear relationships. Essential for Linear Regression.
+
+* **Categorical -** Numerical: Often analyzed using Grouped Box Plots or Bar Charts to see how a numeric value (e.g., Income) varies across categories (e.g., Job Title).
+
+### 🐍 Python Implementation (Bivariate):
+```python
+import pandas as pd
+import seaborn as sns
+
+# Crosstab
+pd.crosstab(df['Gender'], df['Purchased'])
+
+# Scatter Plot
+sns.scatterplot(x='Age', y='Salary', data=df)
+
+# Box Plot (Categorical vs Numerical)
+sns.boxplot(x='Category', y='Value', data=df)
+```

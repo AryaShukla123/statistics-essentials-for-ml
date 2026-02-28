@@ -151,3 +151,31 @@ from scipy import stats
 # Set visual style for plots
 sns.set_theme(style="whitegrid")
 ```
+
+
+
+---
+
+## 📊 Summary Table: Choosing the Right Analysis
+
+Use this table as a quick reference to determine which statistical method or visualization fits your data type.
+
+| Analysis Type | Variable 1 | Variable 2 | Goal | Recommended Tool / Visualization |
+| :--- | :--- | :--- | :--- | :--- |
+| **Univariate** | Categorical | - | Distribution of categories | Bar Chart / Frequency Table |
+| **Univariate** | Numerical | - | Distribution of values | Histogram / Box Plot / PDF |
+| **Bivariate** | Categorical | Categorical | Relationship between groups | Contingency Table (Crosstab) / Heatmap |
+| **Bivariate** | Numerical | Numerical | Correlation / Trend | Scatter Plot / Line Plot |
+| **Bivariate** | Categorical | Numerical | Comparison of groups | Grouped Box Plot / Bar Chart |
+
+---
+
+### 🔍 Understanding the Box Plot
+The Box Plot is a powerful univariate and bivariate tool that summarizes the **Median**, **Quartiles**, and **Outliers** in a single view.
+
+
+
+* **Median (Q2):** The middle line in the box.
+* **Interquartile Range (IQR):** The distance between the 25th (Q1) and 75th (Q3) percentiles (the box itself).
+* **Whiskers:** Typically represent $1.5 \times IQR$.
+* **Outliers:** Points that fall outside the whiskers.

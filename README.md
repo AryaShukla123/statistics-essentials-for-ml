@@ -113,3 +113,41 @@ sns.scatterplot(x='Age', y='Salary', data=df)
 # Box Plot (Categorical vs Numerical)
 sns.boxplot(x='Category', y='Value', data=df)
 ```
+
+
+
+---
+
+## 🛠️ Getting Started & Installation
+
+To run the statistical analysis and visualizations mentioned in this guide, you will need **Python 3.x** and the following data science libraries:
+
+### 1. Install Dependencies
+Run the following command in your terminal/command prompt:
+
+```bash
+pip install numpy pandas scipy matplotlib seaborn
+```
+
+### 2. Library Overview
+* **NumPy:** Used for high-performance mathematical operations and arrays.
+
+* **Pandas:** The primary tool for data manipulation and creating Frequency Tables/Crosstabs.
+
+* **SciPy:** Essential for advanced statistics like Trimmed Mean, Z-Scores, and Hypothesis Testing.
+
+* **Matplotlib/Seaborn:** Used for Univariate (Histograms) and Bivariate (Scatter plots, Box plots) visualizations.
+
+### 3. Quick Setup Code
+Copy this block at the top of your Python script to ensure all tools are ready:
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+
+# Set visual style for plots
+sns.set_theme(style="whitegrid")
+```

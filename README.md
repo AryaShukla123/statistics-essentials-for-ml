@@ -11,6 +11,8 @@ Statistics is the backbone of Machine Learning, providing the tools to separate 
 * **Inferential Statistics:** Uses a random sample of data taken from a population to describe and make inferences about the whole population. 
 * **Population ($N$) vs. Sample ($n$):** * **Population:** The entire collection of items under consideration.
     * **Sample:** A representative subset of the population. We use sample statistics ($\bar{x}, s$) to estimate population parameters ($\mu, \sigma$).
+ 
+![Population vs Sample](images/population_sample.jpg)
 
 
 

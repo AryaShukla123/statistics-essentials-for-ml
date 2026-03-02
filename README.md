@@ -27,6 +27,8 @@ Before applying any model, you must identify the data type to choose the correct
 * **Categorical (Qualitative):**
     * **Nominal:** Categories with no inherent order (e.g., Gender, Nationality).
     * **Ordinal:** Categories with a clear ranking (e.g., Education level: High School < Bachelors < Masters).
+ 
+![Data Types](images/data_types.webp)
 
 
 

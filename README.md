@@ -43,6 +43,8 @@ These metrics help identify the "typical" value in your dataset.
 * **Weighted Mean:** Used when certain data points contribute more to the final result than others (e.g., calculating GPA).
 * **Trimmed Mean:** Calculating the mean after removing a fixed percentage (e.g., 5% or 10%) of the top and bottom values. This reduces the impact of extreme outliers.
 
+![Central Tendency Skewness](images/skewness.webp)
+
 ### 🐍 Python Implementation:
 ```python
 import numpy as np
@@ -89,6 +91,8 @@ Focuses on understanding the distribution of a single feature.
 
 * **Numerical Data**
     * **Histogram:** Displays the "density" of data across bins. It helps identify if data is Normal, Right-Skewed, or Left-Skewed.
+ 
+![Histogram and KDE](images/histogram_kde.png)
 
 
 
@@ -113,6 +117,8 @@ pd.crosstab(df['Gender'], df['Purchased'])
 
 # Scatter Plot
 sns.scatterplot(x='Age', y='Salary', data=df)
+
+![Correlation Types](images/Correlation.png)
 
 # Box Plot (Categorical vs Numerical)
 sns.boxplot(x='Category', y='Value', data=df)
@@ -176,6 +182,8 @@ Use this table as a quick reference to determine which statistical method or vis
 
 ### 🔍 Understanding the Box Plot
 The Box Plot is a powerful univariate and bivariate tool that summarizes the **Median**, **Quartiles**, and **Outliers** in a single view.
+
+![Boxplot Anatomy](images/boxplot_anatomy.png)
 
 
 

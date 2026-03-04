@@ -191,3 +191,79 @@ The Box Plot is a powerful univariate and bivariate tool that summarizes the **M
 * **Interquartile Range (IQR):** The distance between the 25th (Q1) and 75th (Q3) percentiles (the box itself).
 * **Whiskers:** Typically represent $1.5 \times IQR$.
 * **Outliers:** Points that fall outside the whiskers.
+
+
+
+---
+
+## 7. Quantiles and Percentiles
+These measures describe the position of a data point relative to the rest of the dataset.
+
+* **Percentile:** A value below which a certain percentage of observations fall. For example, the 90th percentile is the value higher than 90% of the other data points.
+* **Quantiles:** Points that divide the distribution into equal intervals. 
+    * **Quartiles ($Q_1, Q_2, Q_3$):** Divide data into four equal parts (25%, 50%, 75%).
+* **How to Calculate:** Data must be sorted in ascending order first. The index $i$ is calculated as $i = \frac{P}{100} \times n$.
+
+---
+
+## 8. The 5-Number Summary & Boxplots
+The 5-Number Summary is a descriptive statistic that provides a snapshot of the dataset's distribution.
+
+1. **Minimum:** The smallest value (excluding outliers).
+2. **First Quartile ($Q_1$):** 25th percentile.
+3. **Median ($Q_2$):** 50th percentile.
+4. **Third Quartile ($Q_3$):** 75th percentile.
+5. **Maximum:** The largest value (excluding outliers).
+
+### Boxplot Theory
+A Boxplot visually represents the 5-number summary. The "box" shows the Interquartile Range ($IQR = Q_3 - Q_1$), and the "whiskers" extend to the minimum and maximum values within $1.5 \times IQR$.
+* **Side-by-Side Boxplots:** Used to compare the distribution of a numerical variable across different categories (e.g., comparing salary distributions across different departments).
+
+![Boxplot Anatomy](images/boxplot_anatomy.png)
+
+
+---
+
+## 9. Covariance
+Covariance indicates the direction of the linear relationship between two random variables.
+
+* **Interpretation:** * **Positive Covariance:** Both variables move in the same direction.
+    * **Negative Covariance:** Variables move in opposite directions.
+* **Calculation:** It is the average of the product of the deviations of each variable from their respective means.
+* **Covariance with Itself:** The covariance of a variable with itself is simply its **Variance**.
+* **Disadvantages:** The value of covariance depends on the scale of the variables (e.g., measuring in cm vs. meters), making it difficult to interpret the *strength* of the relationship.
+
+---
+
+## 10. Correlation
+Correlation solves the scaling problem of covariance by "normalizing" the result.
+
+* **What is Correlation?** A standardized measure (ranging from -1 to +1) that describes both the **direction** and **strength** of a linear relationship.
+* **Correlation vs. Causation:** A high correlation does **not** imply that one variable causes the other to change. "Correlation does not imply causation" is a golden rule in statistics.
+
+![Correlation Types](images/correlation.png)
+
+
+---
+
+## 11. Multivariate Visualization
+Techniques for visualizing more than two variables at once.
+
+* **Scatter Plots:** The primary tool for bivariate numerical analysis.
+* **Pair Plots:** A grid of scatter plots used to visualize relationships between all pairs of numerical variables in a dataset.
+* **Heatmaps:** Often used to visualize a **Correlation Matrix**, showing how all variables in a dataset relate to one another using a color scale.
+
+### 🐍 Python Implementation:
+```python
+# Calculating Correlation Matrix
+correlation_matrix = df.corr()
+
+# Visualizing with a Heatmap
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.show()
+
+# 5-Number Summary
+df.describe()

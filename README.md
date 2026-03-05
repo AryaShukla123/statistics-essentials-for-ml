@@ -310,7 +310,7 @@ Density estimation is the construction of an estimate, based on observed data, o
 * **Non-Parametric Density Estimation:** Does not assume a specific functional form. The most common method is **Kernel Density Estimation (KDE)**.
 * **Kernel Density Estimate (KDE):** A way to estimate the PDF of a random variable. It smooths out the observations (the histogram) to create a continuous curve, making it easier to visualize the shape of the data.
 
-![KDE Plot](kde_plot.png)
+![KDE Plot](images/kde_plot.png)
 
 
 

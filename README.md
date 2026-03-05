@@ -267,3 +267,66 @@ plt.show()
 
 # 5-Number Summary
 df.describe()
+```
+
+
+
+---
+
+## 12. Random Variables & Probability Distributions
+A **Random Variable** is a numerical description of the outcome of a statistical experiment.
+
+* **Types of Random Variables:**
+    * **Discrete:** Takes on a countable number of distinct values (e.g., the outcome of a die roll).
+    * **Continuous:** Takes on an infinite number of possible values within a given range (e.g., height, time).
+* **Probability Distribution:** A mathematical function that provides the probabilities of occurrence of different possible outcomes for an experiment.
+
+---
+
+## 13. Probability Distribution Functions (PDF vs. PMF)
+The way we describe probabilities depends on whether the random variable is discrete or continuous.
+
+* **Probability Mass Function (PMF):** Used for **discrete** random variables. it gives the probability that a discrete random variable is exactly equal to some value.
+    * **Example:** $P(X = k)$.
+* **Cumulative Distribution Function (CDF) of PMF:** Represents the probability that the variable $X$ will take a value less than or equal to $x$. It is a step function.
+
+
+
+* **Probability Density Function (PDF):** Used for **continuous** random variables. Since the probability of a continuous variable being *exactly* one value is zero, the PDF describes the probability within a particular range (the area under the curve).
+* **Cumulative Distribution Function (CDF) of PDF:** The integral of the PDF from $-\infty$ to $x$. It shows the accumulated probability up to a certain point.
+
+
+
+---
+
+## 14. Density Estimation
+Density estimation is the construction of an estimate, based on observed data, of an unobservable underlying probability density function.
+
+* **Parametric Density Estimation:** Assumes the data fits a known distribution (like Normal or Poisson) and estimates the parameters (like mean $\mu$ and standard deviation $\sigma$) for that distribution.
+* **Non-Parametric Density Estimation:** Does not assume a specific functional form. The most common method is **Kernel Density Estimation (KDE)**.
+* **Kernel Density Estimate (KDE):** A way to estimate the PDF of a random variable. It smooths out the observations (the histogram) to create a continuous curve, making it easier to visualize the shape of the data.
+
+
+
+---
+
+### 🐍 Python Implementation:
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate random data
+data = np.random.normal(loc=0, scale=1, size=1000)
+
+# Visualizing PDF using KDE
+sns.histplot(data, kde=True, stat="density", color="skyblue")
+plt.title("Probability Density Function (KDE)")
+plt.show()
+
+# Calculating CDF using NumPy
+sorted_data = np.sort(data)
+y = np.arange(len(sorted_data)) / float(len(sorted_data))
+plt.plot(sorted_data, y)
+plt.title("Cumulative Distribution Function (CDF)")
+plt.show()

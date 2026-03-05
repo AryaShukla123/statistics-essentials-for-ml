@@ -290,10 +290,14 @@ The way we describe probabilities depends on whether the random variable is disc
     * **Example:** $P(X = k)$.
 * **Cumulative Distribution Function (CDF) of PMF:** Represents the probability that the variable $X$ will take a value less than or equal to $x$. It is a step function.
 
+![PMF V/S CDF](images/pmf_vs_cdf.png)
+
 
 
 * **Probability Density Function (PDF):** Used for **continuous** random variables. Since the probability of a continuous variable being *exactly* one value is zero, the PDF describes the probability within a particular range (the area under the curve).
 * **Cumulative Distribution Function (CDF) of PDF:** The integral of the PDF from $-\infty$ to $x$. It shows the accumulated probability up to a certain point.
+
+![PDF Graph](images/pdf_graph.png)
 
 
 
@@ -305,6 +309,8 @@ Density estimation is the construction of an estimate, based on observed data, o
 * **Parametric Density Estimation:** Assumes the data fits a known distribution (like Normal or Poisson) and estimates the parameters (like mean $\mu$ and standard deviation $\sigma$) for that distribution.
 * **Non-Parametric Density Estimation:** Does not assume a specific functional form. The most common method is **Kernel Density Estimation (KDE)**.
 * **Kernel Density Estimate (KDE):** A way to estimate the PDF of a random variable. It smooths out the observations (the histogram) to create a continuous curve, making it easier to visualize the shape of the data.
+
+![KDE Plot](kde_plot.png)
 
 
 

@@ -336,3 +336,82 @@ y = np.arange(len(sorted_data)) / float(len(sorted_data))
 plt.plot(sorted_data, y)
 plt.title("Cumulative Distribution Function (CDF)")
 plt.show()
+```
+
+
+
+---
+
+## 15. The Normal Distribution (Gaussian Distribution)
+The Normal Distribution is the most important probability distribution in Data Science because many natural phenomena and machine learning residuals follow this "Bell Curve" pattern.
+
+### Why is it important?
+* **Central Limit Theorem:** The sums of independent random variables tend toward a normal distribution, even if the original variables themselves are not normally distributed.
+* **Model Assumptions:** Many algorithms (like Linear Regression and LDA) assume that the features or errors are normally distributed.
+
+### Equation and Parameters
+The shape of the Normal Distribution is determined by two parameters:
+1. **Mean ($\mu$):** Determines the center/location of the peak.
+2. **Standard Deviation ($\sigma$):** Determines the spread or "fatness" of the curve.
+
+$$f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$$
+
+---
+
+## 16. Standard Normal Variate ($Z$)
+A Standard Normal Distribution is a special case where **$\mu = 0$** and **$\sigma = 1$**.
+
+* **Z-Score Transformation:** We can convert any Normal Distribution to a Standard Normal Distribution using the formula:
+  $$Z = \frac{x - \mu}{\sigma}$$
+* **Why use Z-Scores?** It allows us to compare data points from different scales and use **Z-Tables** to calculate the probability of a value occurring.
+
+### The Empirical Rule (68-95-99.7 Rule)
+In a normal distribution:
+* **68%** of data falls within $1\sigma$ of the mean.
+* **95%** of data falls within $2\sigma$ of the mean.
+* **99.7%** of data falls within $3\sigma$ of the mean.
+
+
+
+
+---
+
+## 17. Properties of Normal Distribution
+* **Symmetry:** The left half is a mirror image of the right half.
+* **Measures of Central Tendency:** The Mean, Median, and Mode are all equal and located at the center.
+* **Total Area:** The total area under the curve is always equal to **1** (representing 100% probability).
+
+---
+
+## 18. Skewness
+Skewness measures the lack of symmetry in a probability distribution.
+
+* **Positive Skew (Right-Skewed):** The tail on the right side is longer. Mean > Median > Mode.
+* **Negative Skew (Left-Skewed):** The tail on the left side is longer. Mean < Median < Mode.
+* **Calculation:** Often calculated using the Pearson’s Coefficient of Skewness.
+
+
+
+---
+
+## 19. Using PDF & CDF in Data Science
+* **PDF (Probability Density Function):** Used to find the relative likelihood of a continuous random variable falling within a specific range.
+* **CDF (Cumulative Distribution Function):** Used to find the probability that a variable is *less than or equal to* a certain value. In ML, this is used for calculating p-values and confidence intervals.
+* **2D Density Plots:** Used in Bivariate analysis to see where the highest concentration of data points exists between two variables.
+
+### 🐍 Python Implementation:
+```python
+import scipy.stats as stats
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Check for Skewness
+data = [1, 2, 2, 3, 3, 3, 10, 15]
+print(f"Skewness: {stats.skew(data)}")
+
+# Normal Distribution PDF
+x = np.linspace(-4, 4, 100)
+plt.plot(x, stats.norm.pdf(x, 0, 1))
+plt.title("Standard Normal Distribution")
+plt.show()
+```

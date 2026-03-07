@@ -43,7 +43,7 @@ These metrics help identify the "typical" value in your dataset.
 * **Weighted Mean:** Used when certain data points contribute more to the final result than others (e.g., calculating GPA).
 * **Trimmed Mean:** Calculating the mean after removing a fixed percentage (e.g., 5% or 10%) of the top and bottom values. This reduces the impact of extreme outliers.
 
-![Central Tendency Skewness](images/skewness.webp)
+![Central Tendency Skewness](images/Relationship_between_mean_and_median_under_different_skewness.png)
 
 ### 🐍 Python Implementation:
 ```python

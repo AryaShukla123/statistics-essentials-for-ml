@@ -371,6 +371,7 @@ In a normal distribution:
 * **95%** of data falls within $2\sigma$ of the mean.
 * **99.7%** of data falls within $3\sigma$ of the mean.
 
+![Empirical Rule](images/empirical_rule.png)
 
 
 
@@ -389,6 +390,9 @@ Skewness measures the lack of symmetry in a probability distribution.
 * **Positive Skew (Right-Skewed):** The tail on the right side is longer. Mean > Median > Mode.
 * **Negative Skew (Left-Skewed):** The tail on the left side is longer. Mean < Median < Mode.
 * **Calculation:** Often calculated using the Pearson’s Coefficient of Skewness.
+
+![Skewness Comparison](images/skewness_types.png)
+[Image comparing normal distribution with positive and negative skewness]
 
 
 

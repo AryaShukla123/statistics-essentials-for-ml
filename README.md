@@ -241,7 +241,7 @@ Correlation solves the scaling problem of covariance by "normalizing" the result
 * **What is Correlation?** A standardized measure (ranging from -1 to +1) that describes both the **direction** and **strength** of a linear relationship.
 * **Correlation vs. Causation:** A high correlation does **not** imply that one variable causes the other to change. "Correlation does not imply causation" is a golden rule in statistics.
 
-![Correlation Types](images/Correlation.png)
+![Correlation Types](images/correlation.png)
 
 
 ---

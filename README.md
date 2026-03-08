@@ -419,3 +419,69 @@ plt.plot(x, stats.norm.pdf(x, 0, 1))
 plt.title("Standard Normal Distribution")
 plt.show()
 ```
+
+
+
+---
+
+## 20. Kurtosis
+While skewness measures the symmetry of a distribution, **Kurtosis** measures the "tailedness" or the thickness of the tails relative to a normal distribution.
+
+* **Practical Use Case:** In finance, high kurtosis indicates "Fat Tails," meaning there is a higher probability of extreme events (market crashes) than a normal distribution would predict.
+* **Types of Kurtosis (Excess Kurtosis):**
+    * **Mesokurtic:** Zero excess kurtosis (Normal Distribution).
+    * **Leptokurtic (Positive):** Fat tails and a sharp peak.
+    * **Platykurtic (Negative):** Thin tails and a flat peak.
+
+
+
+---
+
+## 21. Testing for Normality (Q-Q Plots)
+How do we know if our data is actually normal? The most effective visual tool is the **Q-Q (Quantile-Quantile) Plot**.
+
+* **What is a Q-Q Plot?** It plots the quantiles of your sample data against the quantiles of a theoretical normal distribution.
+* **Interpretation:**
+    * **Straight Line:** If the points fall along a straight 45-degree diagonal line, the data is normally distributed.
+    * **Curved Ends:** Indicates heavier or lighter tails (Kurtosis).
+    * **S-Shape:** Indicates skewness in the data.
+
+
+
+---
+
+## 22. Other Important Distributions
+* **Uniform Distribution:** Every value in a range is equally likely to occur (e.g., rolling a fair die).
+* **Log-Normal Distribution:** A distribution where the logarithm of the variable is normally distributed. Commonly found in income levels and web traffic.
+* **Pareto Distribution:** Also known as the "80/20 rule." It describes a distribution where a small percentage of the population accounts for a large portion of the effect (e.g., wealth distribution).
+
+
+
+---
+
+## 23. Mathematical Transformations
+Many Machine Learning models require data to be normally distributed. If your data is skewed, you can use **Transformations** to make it more "Normal."
+
+### Function Transformers
+1. **Log Transform:** $y = \log(x)$. Extremely effective for right-skewed data and Log-Normal distributions. (Note: Only works for positive values).
+2. **Reciprocal Transform:** $y = 1/x$. Useful for variables like "time to finish a task" or ratios.
+3. **Square / Square Root Transform:** $y = \sqrt{x}$. Used to reduce right skewness and stabilize variance.
+
+### Power Transformers
+These are more advanced methods that automatically find the best transformation factor ($\lambda$) to make data normal.
+* **Box-Cox Transform:** Works only for strictly positive data ($x > 0$).
+* **Yeo-Johnson Transformation:** An extension of Box-Cox that works for both positive and negative values.
+
+### 🐍 Python Implementation:
+```python
+from sklearn.preprocessing import FunctionTransformer, PowerTransformer
+import numpy as np
+
+# Log Transform
+log_transformer = FunctionTransformer(np.log1p) # log(1+x) to handle zeros
+data_transformed = log_transformer.transform(data)
+
+# Box-Cox or Yeo-Johnson
+pt = PowerTransformer(method='yeo-johnson')
+data_normal = pt.fit_transform(data.reshape(-1, 1))
+```

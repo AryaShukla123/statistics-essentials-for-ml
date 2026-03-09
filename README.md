@@ -433,6 +433,8 @@ While skewness measures the symmetry of a distribution, **Kurtosis** measures th
     * **Leptokurtic (Positive):** Fat tails and a sharp peak.
     * **Platykurtic (Negative):** Thin tails and a flat peak.
 
+![Kurtosis Types](images/kurtosis_types.png)
+
 
 
 ---
@@ -445,6 +447,8 @@ How do we know if our data is actually normal? The most effective visual tool is
     * **Straight Line:** If the points fall along a straight 45-degree diagonal line, the data is normally distributed.
     * **Curved Ends:** Indicates heavier or lighter tails (Kurtosis).
     * **S-Shape:** Indicates skewness in the data.
+
+![Q-Q Plot](images/qq_plot.png)
 
 
 
@@ -472,6 +476,7 @@ These are more advanced methods that automatically find the best transformation 
 * **Box-Cox Transform:** Works only for strictly positive data ($x > 0$).
 * **Yeo-Johnson Transformation:** An extension of Box-Cox that works for both positive and negative values.
 
+![Transformations](images/transformations.png)
 ### 🐍 Python Implementation:
 ```python
 from sklearn.preprocessing import FunctionTransformer, PowerTransformer

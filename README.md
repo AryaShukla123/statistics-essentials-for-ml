@@ -490,3 +490,77 @@ data_transformed = log_transformer.transform(data)
 pt = PowerTransformer(method='yeo-johnson')
 data_normal = pt.fit_transform(data.reshape(-1, 1))
 ```
+
+
+
+---
+
+## 24. Bernoulli & Binomial Distributions
+These are the foundation of discrete probability, focusing on "success" vs. "failure" outcomes.
+
+### Bernoulli Distribution
+The simplest discrete distribution. It models a single trial with exactly two possible outcomes: success ($1$) with probability $p$, and failure ($0$) with probability $q = 1-p$.
+* **Example:** A single coin flip.
+
+### Binomial Distribution
+The Binomial distribution models the number of successes in a fixed number $n$ of independent Bernoulli trials.
+* **Criteria for Binomial Distribution:**
+    1. The number of trials ($n$) is fixed.
+    2. Each trial has only two possible outcomes.
+    3. The probability of success ($p$) is constant for each trial.
+    4. Each trial is independent of the others.
+* **Probability Mass Function (PMF):**
+  $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+* **Applications in Data Science:** Used in A/B testing (e.g., will a user click a button?), quality control, and fraud detection.
+
+
+
+---
+
+## 25. Sampling Distribution
+In the real world, we rarely have access to the entire population. Instead, we work with samples.
+
+* **Definition:** A sampling distribution is the probability distribution of a statistic (like the mean) obtained from a large number of samples drawn from a specific population.
+* **Why it matters:** It bridge the gap between sample statistics and population parameters, allowing us to quantify the uncertainty of our estimates.
+* **Assumptions for Sampling:**
+    1. Samples must be drawn randomly.
+    2. Samples must be independent of each other.
+    3. The sample size should be large enough (typically $n \ge 30$).
+
+---
+
+## 26. Central Limit Theorem (CLT)
+The Central Limit Theorem is the "magic" of statistics. It states that regardless of the shape of the population distribution, the **sampling distribution of the mean** will approach a Normal Distribution as the sample size increases ($n \to \infty$).
+
+* **Intuition:** If you take enough samples and calculate their means, those means will eventually form a bell curve centered at the true population mean.
+* **Key Takeaway:** This allows us to use Normal Distribution tools (like Z-tests) on data that isn't normally distributed, provided the sample size is sufficient.
+
+
+
+---
+
+## 27. Case Study: Titanic Dataset (Fare)
+A practical application of CLT is analyzing the 'Fare' column in the Titanic dataset. 
+* **The Problem:** The raw Fare data is highly right-skewed (most people paid little, a few paid a lot).
+* **The Solution:** By taking multiple random samples of 30-50 passengers and plotting the distribution of their *average* fares, the resulting graph becomes a Normal Distribution, confirming the CLT.
+
+### 🐍 Python Implementation:
+```python
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Simulate Binomial Distribution (10 trials, 0.5 chance, 1000 times)
+binomial_data = np.random.binomial(n=10, p=0.5, size=1000)
+sns.histplot(binomial_data, kde=False)
+plt.title("Binomial Distribution (n=10, p=0.5)")
+plt.show()
+
+# Demonstrate CLT
+population = np.random.exponential(scale=2, size=10000) # Highly skewed
+sample_means = [np.mean(np.random.choice(population, 30)) for _ in range(1000)]
+
+sns.histplot(sample_means, kde=True)
+plt.title("Sampling Distribution of the Mean (CLT in Action)")
+plt.show()
+```

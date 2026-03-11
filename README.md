@@ -564,3 +564,85 @@ sns.histplot(sample_means, kde=True)
 plt.title("Sampling Distribution of the Mean (CLT in Action)")
 plt.show()
 ```
+
+
+
+---
+
+## 28. Inferential Statistics: Estimation & Confidence Intervals
+Inferential statistics allows us to make predictions or generalizations about a population based on sample data.
+
+* **Parameter vs. Estimate:**
+    * **Parameter:** A descriptive measure of the entire **population** (e.g., population mean $\mu$).
+    * **Estimate:** A specific value (or range) calculated from a **sample** to approximate a population parameter (e.g., sample mean $\bar{x}$).
+* **Point Estimate:** A single numerical value used to estimate a population parameter. While simple, it doesn't account for uncertainty.
+
+---
+
+## 29. Confidence Intervals (CI)
+A Confidence Interval provides a range of values within which we expect the true population parameter to lie, with a certain level of confidence (e.g., 95%).
+
+* **Ways to Calculate CI:**
+    1. **Z-Procedure:** Used when the population standard deviation ($\sigma$) is **known**.
+    2. **T-Procedure:** Used when the population standard deviation is **unknown** and must be estimated using the sample standard deviation ($s$).
+* **Factors Affecting CI Width:**
+    * **Confidence Level:** Higher confidence (e.g., 99%) results in a wider interval.
+    * **Sample Size ($n$):** Larger samples result in narrower, more precise intervals.
+    * **Variability:** Higher standard deviation leads to wider intervals.
+
+---
+
+## 30. The Z-Procedure (Sigma Known)
+This method relies on the Normal Distribution and the Central Limit Theorem.
+
+* **Assumptions:**
+    1. The sample is randomly selected.
+    2. The population is normally distributed OR the sample size is large ($n \ge 30$).
+    3. The population standard deviation ($\sigma$) is known.
+* **Formula:**
+  $$\text{CI} = \bar{x} \pm Z^* \left( \frac{\sigma}{\sqrt{n}} \right)$$
+  *Where $Z^*$ is the critical value (e.g., 1.96 for 95% confidence) and $\frac{\sigma}{\sqrt{n}}$ is the standard error.*
+
+
+
+---
+
+## 31. The T-Procedure (Sigma Unknown)
+When we don't know the population $\sigma$, we use the **Student's t-distribution**, which has "fatter tails" to account for the extra uncertainty of estimating the standard deviation.
+
+* **Assumptions:**
+    1. Sample is random.
+    2. The population is approximately normal.
+* **T-Distribution & Degrees of Freedom ($df$):** The shape of the t-distribution changes based on $df = n - 1$. As $n$ increases, the t-distribution looks more like a standard normal distribution.
+* **Formula:**
+  $$\text{CI} = \bar{x} \pm t^* \left( \frac{s}{\sqrt{n}} \right)$$
+
+
+
+---
+
+## 32. Interpreting Confidence Intervals
+**Correct Interpretation:** "We are 95% confident that the true population mean falls within this interval."
+**Incorrect Interpretation:** "There is a 95% probability that the population mean is in this specific interval." (The population mean is a fixed value; the interval is what changes from sample to sample).
+
+### 🐍 Python Implementation:
+```python
+import numpy as np
+import scipy.stats as stats
+
+data = [25, 30, 28, 35, 32, 29, 31] # Sample data
+
+# Method 1: T-Procedure (Sigma Unknown - Most Common)
+confidence = 0.95
+df = len(data) - 1
+mean = np.mean(data)
+se = stats.sem(data) # Standard Error
+
+interval = stats.t.interval(confidence, df, loc=mean, scale=se)
+print(f"95% Confidence Interval (T-procedure): {interval}")
+
+# Method 2: Z-Procedure (Assume we know population sigma is 3)
+sigma = 3
+z_interval = stats.norm.interval(confidence, loc=mean, scale=sigma/np.sqrt(len(data)))
+print(f"95% Confidence Interval (Z-procedure): {z_interval}")
+```
